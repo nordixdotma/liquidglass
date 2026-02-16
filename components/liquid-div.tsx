@@ -42,7 +42,7 @@ export default function LiquidDiv() {
   }, [])
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center pointer-events-none">
+    <div className="fixed inset-0 flex items-start justify-center pt-10 pointer-events-none">
       <fieldset className="switcher" ref={switcherRef}>
         <legend className="switcher__legend">Navigation</legend>
         
@@ -67,21 +67,22 @@ export default function LiquidDiv() {
         </label>
 
         <div className="switcher__filter">
-          <svg className="absolute w-0 h-0 overflow-hidden">
-            <filter id="switcher" primitiveUnits="objectBoundingBox" x="-20%" y="-20%" width="140%" height="140%">
+          <svg className="absolute w-0 h-0 overflow-hidden" aria-hidden="true">
+            <filter id="switcher" primitiveUnits="objectBoundingBox" x="-50%" y="-50%" width="200%" height="200%">
+              {/* Higher frequency prevents the 'zoomed in' look and restores fine flow */}
               <feTurbulence 
                 type="fractalNoise" 
-                baseFrequency="0.004 0.006" 
+                baseFrequency="0.015 0.015" 
                 numOctaves="12" 
-                seed="88" 
+                seed="188" 
                 result="noise" 
               />
-              <feGaussianBlur in="noise" stdDeviation="0.02" result="smoothNoise" />
+              <feGaussianBlur in="noise" stdDeviation="0.02" result="softNoise" />
               <feGaussianBlur in="SourceGraphic" stdDeviation="0.005" result="blurSource"/>
               
               <feDisplacementMap 
                 in="blurSource" 
-                in2="smoothNoise" 
+                in2="softNoise" 
                 scale="0.2" 
                 xChannelSelector="R" 
                 yChannelSelector="G" 
