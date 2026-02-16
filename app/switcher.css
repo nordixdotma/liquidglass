@@ -6,9 +6,9 @@
   align-items: center;
   gap: var(--gap, 8px);
   width: fit-content;
-  height: 70px;
+  height: 64px;
   box-sizing: border-box;
-  padding: 8px var(--padding-x, 12px) 10px;
+  padding: 0 var(--padding-x, 12px);
   margin: 0 auto;
   border: none;
   border-radius: 99em;
@@ -32,10 +32,10 @@
   pointer-events: auto;
 
   /* Design Tokens */
-  --option-width: 68px;
-  --gap: 8px;
-  --padding-x: 12px;
-  --indicator-pad: 8px;
+  --option-size: 48px;
+  --gap: 12px;
+  --padding-x: 8px;
+  --indicator-pad: 0px;
 }
 
 .switcher__legend {
@@ -63,7 +63,8 @@
 
 .switcher__icon {
   display: block;
-  width: 100%;
+  width: 24px;
+  height: 24px;
   transition: scale 200ms cubic-bezier(0.5, 0, 0, 1);
 }
 
@@ -79,11 +80,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 16px;
-  width: var(--option-width);
-  height: 100%;
+  width: var(--option-size);
+  height: var(--option-size);
   box-sizing: border-box;
-  border-radius: 99em;
+  border-radius: 50%;
   transition: all 160ms;
   cursor: pointer;
 }
@@ -104,12 +104,13 @@
 .switcher::after {
   content: '';
   position: absolute;
-  left: calc(var(--padding-x) - var(--indicator-pad));
-  top: 4px;
+  left: var(--padding-x);
+  top: 50%;
+  transform: translateY(-50%);
   display: block;
-  width: calc(var(--option-width) + var(--indicator-pad) * 2);
-  height: calc(100% - 10px);
-  border-radius: 99em;
+  width: var(--option-size);
+  height: var(--option-size);
+  border-radius: 50%;
   background-color: color-mix(in srgb, var(--c-glass) 30%, transparent);
   z-index: -1;
   box-shadow: 
@@ -121,7 +122,7 @@
     inset 0px -4px 3px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent), 
     0px 4px 12px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
 
-  translate: calc(var(--active-index, 0) * (var(--option-width) + var(--gap))) 0;
+  translate: calc(var(--active-index, 0) * (var(--option-size) + var(--gap))) 0;
   transition: 
     background-color 400ms cubic-bezier(1, 0.0, 0.4, 1),
     box-shadow 400ms cubic-bezier(1, 0.0, 0.4, 1),

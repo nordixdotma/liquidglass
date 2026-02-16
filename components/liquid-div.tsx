@@ -42,28 +42,28 @@ export default function LiquidDiv() {
   }, [])
 
   return (
-    <div className="fixed inset-0 flex items-start justify-center pt-10 pointer-events-none">
+    <div className="fixed inset-0 flex items-end justify-center pb-10 pointer-events-none">
       <fieldset className="switcher" ref={switcherRef}>
         <legend className="switcher__legend">Navigation</legend>
         
         <label className="switcher__option" title="Home">
           <input className="switcher__input" type="radio" name="nav" value="home" c-option="1" defaultChecked />
-          <HiOutlineHome className="switcher__icon" style={{ color: 'var(--c)', width: '24px', height: '24px' }} strokeWidth={2} />
+          <HiOutlineHome className="switcher__icon" style={{ color: 'var(--c)' }} strokeWidth={2} />
         </label>
 
         <label className="switcher__option" title="Projects">
           <input className="switcher__input" type="radio" name="nav" value="projects" c-option="2" />
-          <HiOutlineBriefcase className="switcher__icon" style={{ color: 'var(--c)', width: '24px', height: '24px' }} strokeWidth={2} />
+          <HiOutlineBriefcase className="switcher__icon" style={{ color: 'var(--c)' }} strokeWidth={2} />
         </label>
 
         <label className="switcher__option" title="About">
           <input className="switcher__input" type="radio" name="nav" value="about" c-option="3" />
-          <HiOutlineUser className="switcher__icon" style={{ color: 'var(--c)', width: '24px', height: '24px' }} strokeWidth={2} />
+          <HiOutlineUser className="switcher__icon" style={{ color: 'var(--c)' }} strokeWidth={2} />
         </label>
 
         <label className="switcher__option" title="Contacts">
           <input className="switcher__input" type="radio" name="nav" value="contacts" c-option="4" />
-          <HiOutlineMail className="switcher__icon" style={{ color: 'var(--c)', width: '24px', height: '24px' }} strokeWidth={2} />
+          <HiOutlineMail className="switcher__icon" style={{ color: 'var(--c)' }} strokeWidth={2} />
         </label>
 
         <div className="switcher__filter">
