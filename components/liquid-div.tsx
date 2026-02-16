@@ -74,7 +74,7 @@ export default function LiquidDiv() {
                 type="fractalNoise" 
                 baseFrequency="0.015 0.015" 
                 numOctaves="12" 
-                seed="188" 
+                seed="200" 
                 result="noise" 
               />
               <feGaussianBlur in="noise" stdDeviation="0.02" result="softNoise" />
